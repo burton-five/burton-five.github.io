@@ -132,6 +132,45 @@ body {
     border-radius: 32px;
 }
 
+/* Hover Trigger Text */
+.hover-trigger {
+    cursor: pointer;
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    text-underline-offset: 3px;
+    transition: all 0.2s ease;
+    color: var(--text-color);
+}
+
+.hover-trigger:hover {
+    opacity: 1;
+    text-decoration-style: solid;
+    text-decoration-color: #111;
+}
+
+/* Hover Image Container */
+.hover-image-container {
+    position: sticky;
+    /* top: 100px; */
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+    max-width: 500px;
+}
+
+.hover-image-container.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.hover-image {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 24px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
 @media (max-width: 900px) {
     .about-content {
         flex-direction: column;
@@ -358,6 +397,16 @@ body {
         padding-top: 0;
     }
 
+    /* Hide the right column on mobile since hover doesn't work */
+    .about-col-right {
+        display: none;
+    }
+
+    /* Remove hover styling on mobile - just looks like regular text */
+    .hover-trigger {
+        text-decoration: none;
+        cursor: default;
+    }
 
 
 }
